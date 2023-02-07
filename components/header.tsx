@@ -39,26 +39,16 @@ export default function Header() {
           )}
           {session?.user && (
             <>
-              {session.user.image && (
-                <span
-                  style={{ backgroundImage: `url('${session.user.image}')` }}
-                  className={styles.avatar}
-                />
-              )}
               <span className={styles.signedInText}>
                 <small>Signed in as</small>
                 <br />
                 <strong>{session.user.email ?? session.user.name}</strong>
               </span>
-              <a
-                href={`/api/auth/signout`}
-                className={styles.button}
-                onClick={(e) => {
-                  e.preventDefault()
-                  signOut()
-                }}
-              >
+              <a href={`/api/auth/signout`} className={styles.button} onClick={(e) => {e.preventDefault(); signOut()}}>
                 Sign out
+              </a>
+              <a href={`/api/auth/signin`} className={styles.button} onClick={(e) => { e.preventDefault(); signIn()}}>
+                Link Account
               </a>
             </>
           )}
@@ -70,22 +60,7 @@ export default function Header() {
             <Link href="/">Home</Link>
           </li>
           <li className={styles.navItem}>
-            <Link href="/client">Client</Link>
-          </li>
-          <li className={styles.navItem}>
             <Link href="/server">Server</Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/protected">Protected</Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/api-example">API</Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/admin">Admin</Link>
-          </li>
-          <li className={styles.navItem}>
-            <Link href="/me">Me</Link>
           </li>
         </ul>
       </nav>

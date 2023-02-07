@@ -30,3 +30,8 @@ iframe {
   border-radius: 0.5rem;
   filter: invert(1);
 }
+
+pre { 
+  word-wrap: break-word;
+  overflow-wrap: break-word; 
+}
